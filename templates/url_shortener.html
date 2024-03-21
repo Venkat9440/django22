@@ -1,0 +1,37 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div align="center" class="col">
+        <br> <br>
+        <h1>Welcome to SANJAY's Travel Tourism and Management</h1>
+        <form method="post" action="{% url 'url_shortener' %}">
+            {% csrf_token %}
+            <br>
+            <h4>
+                <label for="long_url">Enter Long URL:</label>
+                <input type="url" name="long_url" required><br>
+<br>
+                <button type="submit">Shorten URL</button>
+
+            </h4>
+        </form>
+    </div>
+    <div align="center" class="col"><br><br>
+        <h1>Top Vacation Destinations</h1>
+        <br>
+        <h1>
+            <p>Your shortened URL is:
+                <br><br><a href="{{ short_url }}" target="_blank">{{ short_url }}</a></p>
+        </h1>
+    </div>
+  </div>
+</div>
+{% endblock %}
+</html>

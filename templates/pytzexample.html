@@ -1,0 +1,34 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+<html lang="en">
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div  align="center" class="col">
+
+      <h1>TIME ZONE</h1>
+
+<br><br><br>
+<center>
+    <!-- Example single danger button -->
+<div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+TIME ZONE
+  </button>
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="{% url 'current_time' city='New_York' %}">New York</a></li>
+      <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="{% url 'current_time' city='London' %}">London</a></li>
+      <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="{% url 'current_time' city='Tokyo' %}">Tokyo</a></li>
+    <li><hr class="dropdown-divider"></li>
+    <li><a class="dropdown-item" href="{% url 'current_time' city='Sydney' %}">Sydney</a></li>
+  </ul>
+</div>
+    </center>
+<br><br><br><br><br><br>
+{% if current_time %}
+  <h2>{{ current_time }}</h2>
+{% endif %}
+{% endblock %}
+</html>

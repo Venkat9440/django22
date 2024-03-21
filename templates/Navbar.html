@@ -1,0 +1,156 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PROJECT</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <style>
+        /* Custom CSS for Navbar */
+        .navbar {
+            background-color: #343a40; /* Change navbar background color */
+        }
+
+        .navbar-brand,
+        .navbar-nav .nav-link {
+            color: #ffffff !important; /* Change text color of navbar items */
+        }
+
+        .navbar-brand:hover,
+        .navbar-nav .nav-link:hover {
+            color: #cccccc !important; /* Change hover text color of navbar items */
+        }
+
+        /* Custom CSS for Buttons */
+        .btn-info {
+            background-color: #17a2b8; /* Change button background color */
+            border-color: #17a2b8; /* Change button border color */
+        }
+
+        .btn-info:hover {
+            background-color: #138496; /* Change hover background color */
+            border-color: #138496; /* Change hover border color */
+        }
+
+        /* Custom CSS for Dropdown Menu */
+        .dropdown-menu {
+            background-color: #343a40; /* Change dropdown menu background color */
+        }
+
+        .dropdown-menu .dropdown-item {
+            color: #ffffff !important; /* Change text color of dropdown items */
+        }
+
+        .dropdown-menu .dropdown-item:hover {
+            background-color: #138496 !important; /* Change hover background color of dropdown items */
+        }
+    </style>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="{% url 'Homepage' %}"><b>Navbar</b></a>
+
+    <a class="navbar-brand" href="{% url 'Homepage' %}">HOME</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNavDropdown">
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'Travelpackage' %}"><b>Travelpackage</b></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'console'%}"><b>Print</b></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'image'%}"><b>IMAGE</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'register' %}"><b>Register</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'rando'%}"><b>OTP</b></a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'url_shortener'%}"><b>TinyURL</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'review_list'%}"><b>REVIEW</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'contact' %}"><b>FeedBack Form</b></a>
+        </li>
+
+      </ul>
+
+      <!-- Example split danger button -->
+      <div class="btn-group">
+        <button type="button" class="btn btn-info"><b>PFSD  1</b></button>
+        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+          <li><a class="dropdown-item" href="{% url 'rando'%}">Random OTP Generator</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{% url 'get_date' %}">Date Time Module</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{% url 'console'%}">Print</a></li>
+          <li><hr class="dropdown-divider"></li>
+
+          <li><a class="dropdown-item" href="{% url 'index' %}">TIME ZONE</a></li>
+          <li><hr class="dropdown-divider"></li>
+
+
+        </ul>
+      </div>
+       <div class="btn-group">
+        <button type="button" class="btn btn-info"><b>PFSD 2</b></button>
+        <button type="button" class="btn btn-info dropdown-toggle dropdown-toggle-split" data-bs-toggle="dropdown" aria-expanded="false">
+          <span class="visually-hidden">Toggle Dropdown</span>
+        </button>
+        <ul class="dropdown-menu">
+
+          <li><a class="dropdown-item" href="{% url 'piechartcall' %}">PIE CHART</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{% url 'weatherpagecall' %}">Weather Report</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{% url 'slidecall' %}">SLIDE SHOW</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{% url 'insert-emp' %}">Curd App</a></li>
+          <li><hr class="dropdown-divider"></li>
+          <li><a class="dropdown-item" href="{% url 'send_emails' %}">Send mail</a></li>
+          <li><hr class="dropdown-divider"></li>
+
+        </ul>
+      </div>
+
+      <ul class="navbar-nav ms-auto">
+        {% if user.is_authenticated %}
+          <li class="nav-item">
+            <span class="nav-link">Welcome, {{ user.username }}</span>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'logout' %}"><b>LogOut</b></a>
+          </li>
+        {% else %}
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'signup' %}"><b>SignUp</b></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{% url 'login' %}"><b>Login </b></a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+{% block body %}
+
+{% endblock %}
+
+
+

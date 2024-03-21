@@ -1,0 +1,25 @@
+{% extends 'Navbar.html' %}
+{% load static %}
+{% block body %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <div class="col order-first">
+        <form align = "center" method="post" action="{% url 'random123' %}">
+            {% csrf_token %}
+            <br>
+            <br>
+            <br>
+            <label>Enter numbers : </label>
+            <input type="text" name="otp" required>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div><br><br><br><br>
+    <h1><center>OTP is:</center></h1>
+    <h1><center>{{ result }}</center></h1>
+</body>
+</html>
+{% endblock %}
